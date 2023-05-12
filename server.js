@@ -3,7 +3,7 @@ const connectDb=require("./config/connectDb");
 const  user  = require("./routes/user");
 
 const app=express();
-// app.use(express.jason());
+app.use(express.json());
 app.use('/user', user);
 connectDb()
 
