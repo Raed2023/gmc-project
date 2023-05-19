@@ -1,0 +1,86 @@
+.mainpage-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  overflow: hidden;
+}
+
+.content-container {
+  text-align: center;
+  color: white;
+}
+
+.title {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.description {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  margin-top: 2rem;
+}
+
+.form-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Add the animation */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.mainpage-container {
+  animation: gradientAnimation 10s ease infinite;
+}
+
+/* Add some additional styles to the links */
+a {
+  display: inline-block;
+  font-size: 1.5rem;
+  color: white;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid white;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.Admin-link {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.Admin-link a {
+  padding: 0.5rem 1rem;
+  background-color: #f0f0f0;
+  color: #333;
+  text-decoration: none;
+  border-radius: 0.5rem;
+}
+

@@ -1,0 +1,68 @@
+.AddTask-container {
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  overflow: hidden;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .AddTask-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .AddTask-form {
+    display: flex;
+    align-items: center;
+  }
+  
+  .AddTask-input {
+    flex: 1;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 0.25rem;
+  }
+  
+  .AddTask-button {
+    background-color: #333;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    margin-left: 0.5rem;
+    cursor: pointer;
+  }
+  
+  .AddTask-button:hover {
+    background-color: #555;
+  }
+  
+  .AddTask-filterButton {
+    background-color: #333;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    margin-top: 1rem;
+    cursor: pointer;
+  }
+  
+  .AddTask-filterButton:hover {
+    background-color: #555;
+  }
+  
+  /* Add more styles as needed */
+  

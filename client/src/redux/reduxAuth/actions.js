@@ -11,7 +11,7 @@ import {
 export const userSignUp = (newUser) => async (dispatch) => {
   dispatch({ type: SIGN_UP });
   try {
-    const { data } = await axios.post("/user/singUp", newUser);
+    const { data } = await axios.post("/user/register", newUser);
     dispatch({
       type: SIGN_UP_SUCCESS,
       payload: data,

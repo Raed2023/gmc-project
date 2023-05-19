@@ -1,24 +1,24 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { userLogin } from '../redux/actions';
 import { Link } from 'react-router-dom';
+import { userLogin } from '../redux/reduxAuth/actions';
 
-const SignIn = () => {
+const SignIns = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const { loading, error } = useSelector(state => state.reducer);
+  const { loading, error } = useSelector((state) => state);
 
   const dispatch = useDispatch();
-  // const history = useHistory();
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const newUser = { email, password };
-    dispatch(userLogin(newUser ));
+    dispatch(userLogin(newUser));
   };
 
   return (
+    <div className="signin-container">
     <div>
       <form>
         {loading ? (
@@ -38,7 +38,7 @@ const SignIn = () => {
                 className="input"
                 placeholder="Email"
                 value={email}
-                onChange={e => setEmail(e.target.value)}
+                onChange={(e) => setEmail(e.target.value)}
                 required
               />
             </div>
@@ -54,7 +54,7 @@ const SignIn = () => {
                 className="input"
                 placeholder="Password"
                 value={password}
-                onChange={e => setPassword(e.target.value)}
+                onChange={(e) => setPassword(e.target.value)}
                 required
               />
             </div>
@@ -68,9 +68,16 @@ const SignIn = () => {
         )}
       </form>
 
-      <Link to="/">Back to Sign in</Link>
+      <Link to="/SignUp" className="link-sign-in">
+        Back to Sign Up
+      </Link>
+      <br />
+      <Link to="/" className="link-sign-up">
+        Back Main page
+      </Link>
+    </div>
     </div>
   );
 };
 
-export default SignIn;
+export default SignIns;

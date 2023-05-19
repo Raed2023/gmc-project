@@ -6,17 +6,17 @@ const config = require ('config');
 const secret = config.get('secret')
 
 exports.register = async (req, res) => {
-  const { fullName, email, password } = req.body;
+  const { fullName, email, password,userRole } = req.body;
   
   // if email already exists
   const existantUser = await User.findOne({email});
   if (existantUser)res.status(409).json({msg:"User already exists!"});
   
   // Validate the input
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return res.status(422).json({ errors: errors.array() });
-  }
+  // const errors = validationResult(req);
+  // if (!errors.isEmpty()) {
+  //   return res.status(422).json({ errors: errors.array() });
+  // }
   
   try {
     // Hash the password
@@ -27,6 +27,7 @@ exports.register = async (req, res) => {
       fullName,
       email,
       password: hashedPassword,
+      userRole
     });
 
     // Save the new user object to the database
@@ -43,6 +44,7 @@ exports.register = async (req, res) => {
       id: newUser._id,
       fullName: newUser.fullName,
       email: newUser.email,
+      userRole:newUser.userRole
     }
     });
     // // Generate a JWT token with an expiration time of 1 hour (3600 seconds)
@@ -64,13 +66,13 @@ exports.register = async (req, res) => {
     // });
 
     // Send a response with the new user object
-    res.status(201).json({ user: newUser });
+    // res.status(201).json({ user: newUser });
   } catch (error) {
     // Log the error to a file or database
     console.error(error);
 
     // Send a response with an error message
-    res.status(500).json({ msg: "Internal server error" });
+    res.status(500).json({ msg: error.message });
   }
 };
 
